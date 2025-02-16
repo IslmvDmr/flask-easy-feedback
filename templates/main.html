@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+
+            <div class="text-center">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show w-50 m-auto" role="alert">
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <img class="d-block mx-auto mb-4 mt-2" src="{{url_for('static', filename='images/feedback.png')}}" alt=""
+                     width="256" height="256">
+                <h1 class="display-5 fw-bold">Форма обратной связи flask-easy-feedback</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">На этой странице вы быстро сможете оставить обратную связь, жалобу или заказать
+                        обратный звонок.</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="/feedback" class="btn btn-danger btn-lg px-4 gap-3">👎 Оставить жалобу</a>
+                        <a  class="btn btn-success btn-lg px-4">❤️ Оставить отзыв</a>
+                    </div>
+                    <div class="d-grid gap-2 mt-2 d-sm-flex justify-content-sm-center">
+
+                        <button type="button" class="btn btn-primary btn-lg px-4" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">📞 Заказать обратный звонок
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+{% endblock %}
