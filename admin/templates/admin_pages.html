@@ -1,0 +1,51 @@
+{%extends "admin.html"%}
+{% block content %}
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show w-50 m-auto mb-3" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+  {% if pages[0] %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Дата</th>
+        <th scope="col">Название страницы</th>
+        <th scope="col">URL</th>
+        <th scope="col">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {%for item in pages%}
+    <tr>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.date}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.url}}</td>
+        <td><a href="{{url_for('admin.edit_page', page_id=item.id)}}" class="btn btn-sm btn-primary"><i
+                class="bi bi-pencil-square"></i></a> <a onclick="confirmDelete({{ item.id }})" class="btn btn-sm btn-danger"><i
+                class="bi bi-trash"></i><a></td>
+    </tr>
+    {%endfor%}
+    {%else%}
+    <div class="m-auto h4">Кажется страниц нет...</div>
+    {%endif%}
+    </tbody>
+</table>
+<script>
+    function confirmDelete(itemId) {
+        if (confirm("Вы уверены, что хотите удалить этот элемент?")) {
+            // Если пользователь подтвердил, переходим по ссылке с id
+            window.location.href = `pages/delete/${itemId}`;
+        }
+    }
+</script>
+{%endblock%}

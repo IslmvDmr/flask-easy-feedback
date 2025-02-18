@@ -1,28 +1,23 @@
- <h1 class="text-center mb-4">Основная информация</h1>
+{%extends "admin.html"%}
+{% block content %}
+<h1 class="text-center mb-4">Основная информация</h1>
 
         <!-- Карточки с информацией -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card text-center">
                     <div class="card-body">
-                        <h5 class="card-title">Количество отзывов</h5>
-                        <p class="card-text display-4">1,234</p>
+                        <h5 class="card-title"> Количество отзывов <i class="bi bi-chat-heart"></i></h5>
+                        <p class="card-text display-4">{{comments}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+
+            <div class="col-md-6">
                 <div class="card text-center">
                     <div class="card-body">
-                        <h5 class="card-title">Количество жалоб</h5>
-                        <p class="card-text display-4">567</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Обратных звонков</h5>
-                        <p class="card-text display-4">89</p>
+                        <h5 class="card-title">Обратных звонков <i class="bi bi-telephone-outbound"></i></h5>
+                        <p class="card-text display-4">{{calls}}</p>
                     </div>
                 </div>
             </div>
@@ -60,3 +55,4 @@
                 <!-- Добавьте больше строк по мере необходимости -->
             </tbody>
         </table>
+{%endblock%}

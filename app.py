@@ -3,7 +3,10 @@ from admin import admin
 from flask_login import LoginManager
 
 from db import User
+
 login_manager = LoginManager()
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -13,6 +16,7 @@ def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
     app.config['SECRET_KEY'] = 'sqlite:///app.db'
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     from db import db, migrate, Phones
     db.init_app(app)
     migrate.init_app(app, db)
@@ -25,12 +29,10 @@ def create_app():
     from auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
-
-
     from feedback import fb
     from main import main
-    app.register_blueprint(fb, url_prefix='/feedback')
     app.register_blueprint(main, url_prefix='/')
+    app.register_blueprint(fb, url_prefix='/feedback')
     app.register_blueprint(admin, url_prefix='/admin')
     return app
 
