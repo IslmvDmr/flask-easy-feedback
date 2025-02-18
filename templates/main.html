@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-    <div class="container-fluid py-5">
+    <div class="container-fluid">
         <h1 class="display-5 fw-bold">Добро пожаловать на наш сайт!</h1>
-        <p class="col-md-8 fs-4">
-            Мы рады приветствовать вас на нашем сайте. Здесь вы найдете множество полезной информации, актуальные новости и многое другое. Надеемся, что вам у нас понравится!
+        <p class="col-md-12 fs-5">
+           Добро пожаловать на страницу проекта лендинга, разработанного с использованием микрофреймворка Flask! <br>
+            Этот проект представляет собой сайт-визитку, с возможностью добавлять статические страницы, дополнительно который включает в себя админ-панель для управления контентом и форму обратной связи для взаимодействия с посетителями.
         </p>
         <button class="btn btn-primary btn-lg" type="button">Узнать больше</button>
     </div>
 </div>
-
-<div class="row g-4 py-5 row-cols-1  row-cols-lg-3">
+<hr>
+<div class="row g-4 py-5 row-cols-1  row-cols-lg-3 ms-5 me-5">
     <div class="feature col ">
         <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
             <i class="bi bi-wrench-adjustable"></i>
         </div>
         <h3 class="fs-2 text-body-emphasis">Наши услуги</h3>
-        <p>Мы предлагаем широкий спектр услуг, которые помогут вам в решении различных задач. От консультаций до полного сопровождения.</p>
-        <a href="#" class="icon-link">
+        <p>Мы предлагаем широкий спектр услуг, которые помогут вам в решении различных задач. От консультаций до полного
+            сопровождения.</p>
+         <a href="/services" class="btn btn-success">
             Подробнее
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
         </a>
     </div>
 
@@ -28,10 +29,10 @@
             <i class="bi bi-universal-access"></i>
         </div>
         <h3 class="fs-2 text-body-emphasis">Наша команда</h3>
-        <p>Наша команда состоит из профессионалов своего дела, которые всегда готовы помочь вам и ответить на все ваши вопросы.</p>
-        <a href="#" class="icon-link">
+        <p>Наша команда состоит из профессионалов своего дела, которые всегда готовы помочь вам и ответить на все ваши
+            вопросы.</p>
+         <a href="/comand" class="btn btn-success">
             Подробнее
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
         </a>
     </div>
     <div class="feature col">
@@ -39,11 +40,12 @@
             <i class="bi bi-trophy-fill"></i>
         </div>
         <h3 class="fs-2 text-body-emphasis">Наши проекты</h3>
-        <p>Мы гордимся нашими проектами, которые реализованы с любовью и вниманием к деталям. Узнайте больше о наших успехах.</p>
-        <a href="#" class="icon-link">
+        <p>Мы гордимся нашими проектами, которые реализованы с любовью и вниманием к деталям. Узнайте больше о наших
+            успехах.</p>
+        <a href="/projects" class="btn btn-success">
             Подробнее
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
         </a>
     </div>
 </div>
+<hr>
 {% endblock %}
