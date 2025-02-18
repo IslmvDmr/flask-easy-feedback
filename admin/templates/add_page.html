@@ -1,0 +1,33 @@
+{% extends "admin.html" %}
+
+<!-- Include stylesheet -->
+{% block content %}
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show w-50 m-auto" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+{%if show_form%}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{form.name.label(class = "form-label")}}
+        {{form.name(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        {{form.url.label(class = "form-label")}}
+        {{form.url(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        {{form.description.label(class = "form-label")}}
+        {{form.description(class="form-control", rows="3")}}
+    </div>
+    {{form.submit}}
+</form>
+{%endif%}
+{%endblock%}

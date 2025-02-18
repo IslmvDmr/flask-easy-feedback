@@ -6,6 +6,7 @@
     <title>Административная панель управления</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -35,13 +36,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                        <a class="nav-link active" aria-current="page" href="/">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Пользователи</a>
+                        <a class="nav-link" href="{{url_for('admin.pages')}}">Страницы</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Настройки</a>
+                        <a class="nav-link" href="/">Обратная связь</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Настройки</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">Выход</a>
@@ -52,68 +56,7 @@
     </nav>
 
     <div class="container">
-        <h1 class="text-center mb-4">Основная информация</h1>
-
-        <!-- Карточки с информацией -->
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Количество отзывов</h5>
-                        <p class="card-text display-4">1,234</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Количество жалоб</h5>
-                        <p class="card-text display-4">567</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Обратных звонков</h5>
-                        <p class="card-text display-4">89</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- График с использованием Chart.js -->
-        <div class="chart-container">
-            <canvas id="userStatsChart"></canvas>
-        </div>
-
-        <!-- Таблица пользователей -->
-        <h2 class="mt-5">Список пользователей</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Имя</th>
-                    <th>Дата регистрации</th>
-                    <th>Действия</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Иван Иванов</td>
-                    <td>2023-10-01</td>
-                    <td><button class="btn btn-sm btn-primary">Редактировать</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Мария Петрова</td>
-                    <td>2023-10-02</td>
-                    <td><button class="btn btn-sm btn-primary">Редактировать</button></td>
-                </tr>
-                <!-- Добавьте больше строк по мере необходимости -->
-            </tbody>
-        </table>
+    {%block content%}{%endblock%}
     </div>
 
     <!-- Скрипт для инициализации Chart.js -->

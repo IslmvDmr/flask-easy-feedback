@@ -13,6 +13,7 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
+        {%if show_form == True%}
         <form method="POST">
             {{ form.hidden_tag() }}
         <div class="container w-75">
@@ -33,6 +34,7 @@
             {{form.submit(class="btn btn-primary")}}
         </form>
         </div>
+    {% endif %}
     </div>
 
 </div>

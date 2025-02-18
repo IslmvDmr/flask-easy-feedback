@@ -24,18 +24,20 @@ def index():
     return render_template('main_fb.html', form=form, register_phone=register_phone)
 @fb.route('/comment', methods=['GET', 'POST'])
 def fb_main():
+    show_form = True
     form = Feedback_form()  # Создаем экземпляр формы внутри функции
     if request.method == 'POST' and form.validate_on_submit():
         try:
-            add_feedback = Feedback(name=form.name.data, email=form.email.data, message = form.description.data)
+            add_feedback = Feedback(name=form.name.data, email=form.email.data, message = form.description.data, type="Отзыв")
             db.session.add(add_feedback)
             db.session.flush()
             db.session.commit()
             flash(f'{form.name.data}, спасибо за отзыв! ')
             form = Feedback_form(formdata=None)
+            show_form = False
         except:
             db.session.rollback()
-    return render_template('feedback.html', form=form)
+    return render_template('feedback.html', form=form, show_form=show_form)
 
 @fb.route('/claim', methods=['GET', 'POST'])
 def claim():
