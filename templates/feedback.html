@@ -13,15 +13,25 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
+        <form method="POST">
+            {{ form.hidden_tag() }}
         <div class="container w-75">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
+            <div class="mb-3">
+
+                {{form.name.label(class="form-label")}}
+                {{form.name(class="form-control")}}
+            </div>
+            <div class="mb-3">
+
+                {{form.email.label(class="form-label")}}
+                {{form.email(class="form-control")}}
+            </div>
+            <div class="mb-3">
+                {{form.description.label(class="form-label")}}
+                {{form.description(class="form-control", rows='7')}}
+            </div>
+            {{form.submit(class="btn btn-primary")}}
+        </form>
         </div>
     </div>
 

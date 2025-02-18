@@ -1,8 +1,13 @@
 from flask import Flask, render_template, flash
-from feedback import fb
 from admin import admin
-from flask_sqlalchemy import SQLAlchemy
-from forms import Phone
+from flask_login import LoginManager
+
+from db import User
+login_manager = LoginManager()
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 
 def create_app():
     app = Flask(__name__)
@@ -11,28 +16,22 @@ def create_app():
     from db import db, migrate, Phones
     db.init_app(app)
     migrate.init_app(app, db)
+
+    # Инициализация Flask-Login
+    login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'  # Указываем endpoint для страницы входа
+
+    # Регистрация Blueprint
+    from auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint)
+
+
+
+    from feedback import fb
+    from main import main
     app.register_blueprint(fb, url_prefix='/feedback')
+    app.register_blueprint(main, url_prefix='/')
     app.register_blueprint(admin, url_prefix='/admin')
-
-    @app.route('/', methods=['GET', 'POST'])
-    def index():
-        form = Phone()
-        if form.validate_on_submit():
-            register_phone = True
-            try:
-                add_phone = Phones(name=form.name.data, number=form.phone.data)
-                db.session.add(add_phone)
-                db.session.flush()
-                db.session.commit()
-                flash(f'{form.name.data}, благодарим за обращение. В скором времени с вами свяжутся по телефону.')
-            except:
-                db.session.rollback()
-
-        else:
-            register_phone = False
-
-        return render_template('main.html', form=form, register_phone=register_phone)
-
     return app
 
 

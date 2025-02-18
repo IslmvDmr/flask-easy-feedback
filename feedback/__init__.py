@@ -1,7 +1,3 @@
-from flask import Blueprint, render_template
+from .routes import fb
 
-fb = Blueprint('feedback', __name__)
 
-@fb.route('/')
-def fb_main():
-    return render_template('feedback.html')
