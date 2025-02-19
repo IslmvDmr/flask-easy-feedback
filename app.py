@@ -1,6 +1,7 @@
 from flask import Flask, render_template, flash
 from admin import admin
 from flask_login import LoginManager
+from config import Config
 
 from db import User
 
@@ -14,9 +15,7 @@ def load_user(user_id):
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-    app.config['SECRET_KEY'] = 'sqlite:///app.db'
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.config.from_object(Config)
     from db import db, migrate, Phones
     db.init_app(app)
     migrate.init_app(app, db)

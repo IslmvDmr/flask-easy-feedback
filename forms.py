@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, Email, Length
 
 class Phone(FlaskForm):
     name = StringField("Имя ", validators=[DataRequired(), Length(min=1, max=30)])
-    phone = StringField("Телефон ", validators=[DataRequired(), Length(min=4, max=10)])
+    phone = StringField("Телефон ", validators=[DataRequired(), Length(min=11, max=11)])
     submit = SubmitField("Отправить")
 
 

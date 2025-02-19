@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{%extends "admin.html"%}
+{%block content%}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show w-50 m-auto" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{form.title.label(class = "form-label")}}
+        {{form.title(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        {{form.description.label(class = "form-label")}}
+        {{form.description(class="form-control")}}
+    </div>
+        <div class="mb-3">
+        {{form.keywords.label(class = "form-label")}}
+        {{form.keywords(class="form-control")}}
+    </div>
+
+    {{form.submit(class="btn btn-primary")}}
+</form>
+
+{%endblock%}

@@ -23,36 +23,60 @@
             </div>
         </div>
 
-        <!-- График с использованием Chart.js -->
-        <div class="chart-container">
-            <canvas id="userStatsChart"></canvas>
-        </div>
 
-        <!-- Таблица пользователей -->
-        <h2 class="mt-5">Список пользователей</h2>
+<div class="m-auto w-75">
+        <!-- Таблица отзывов -->
+        <h2 class="mt-5">Последние 5 отзывов</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Имя</th>
                     <th>Дата регистрации</th>
-                    <th>Действия</th>
+                    <th>Сообщение</th>
+
                 </tr>
             </thead>
+
             <tbody>
+             {% for message in messages%}
                 <tr>
-                    <td>1</td>
-                    <td>Иван Иванов</td>
-                    <td>2023-10-01</td>
-                    <td><button class="btn btn-sm btn-primary">Редактировать</button></td>
+                    <td>{{message.id}}</td>
+                    <td>{{message.name}}</td>
+                    <td>{{message.date}}</td>
+                    <td>{{message.message[:30]}}...</td>
+
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Мария Петрова</td>
-                    <td>2023-10-02</td>
-                    <td><button class="btn btn-sm btn-primary">Редактировать</button></td>
-                </tr>
+               {%endfor%}
                 <!-- Добавьте больше строк по мере необходимости -->
             </tbody>
         </table>
+
+
+<h2 class="mt-5">Последние 5 обратных звонков</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Дата регистрации</th>
+                    <th>Номер телефона</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+             {% for phone in phones%}
+                <tr>
+                    <td>{{phone.id}}</td>
+                    <td>{{phone.name}}</td>
+                    <td>{{phone.date}}</td>
+                    <td>{{phone.number}}</td>
+
+                </tr>
+               {%endfor%}
+                <!-- Добавьте больше строк по мере необходимости -->
+            </tbody>
+        </table>
+</div>
 {%endblock%}

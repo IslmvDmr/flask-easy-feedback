@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, flash, request
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required,current_user
 from . import auth
 from db import User
 from db import db
@@ -15,17 +15,11 @@ def login():
             login_user(user)
             return redirect(url_for('admin.index'))
         return 'invalid'
+    if current_user.is_authenticated:
+        return redirect(url_for('admin.index'))
     return render_template('login.html')
 
-@auth.route('/register', methods=['GET', 'POST'])
-def register():
-        email = request.form.get('email')
-        password = request.form.get('password')
-        user = User(email='admin@admin.ru')
-        user.set_password('123456')
-        db.session.add(user)
-        db.session.commit()
-        return "okjk"
+
 
 
 @auth.route('/logout')

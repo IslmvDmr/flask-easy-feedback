@@ -1,49 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-    <div class="container-fluid py-5">
+    <div class="container-fluid">
         <h1 class="display-5 fw-bold">{{page.name}}</h1>
         <p class="col-md-8 fs-4">
-            {{page.description}}
+            {{page.description|safe}}
         </p>
 
-    </div>
-</div>
-
-<div class="row g-4 py-5 row-cols-1  row-cols-lg-3">
-    <div class="feature col ">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
-            <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
-        </div>
-        <h3 class="fs-2 text-body-emphasis">Наши услуги</h3>
-        <p>Мы предлагаем широкий спектр услуг, которые помогут вам в решении различных задач. От консультаций до полного сопровождения.</p>
-        <a href="#" class="icon-link">
-            Подробнее
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-        </a>
-    </div>
-
-    <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
-            <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
-        </div>
-        <h3 class="fs-2 text-body-emphasis">Наша команда</h3>
-        <p>Наша команда состоит из профессионалов своего дела, которые всегда готовы помочь вам и ответить на все ваши вопросы.</p>
-        <a href="#" class="icon-link">
-            Подробнее
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-        </a>
-    </div>
-    <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
-            <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
-        </div>
-        <h3 class="fs-2 text-body-emphasis">Наши проекты</h3>
-        <p>Мы гордимся нашими проектами, которые реализованы с любовью и вниманием к деталям. Узнайте больше о наших успехах.</p>
-        <a href="#" class="icon-link">
-            Подробнее
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-        </a>
     </div>
 </div>
 {% endblock %}

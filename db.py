@@ -26,7 +26,7 @@ class User(UserMixin, db.Model):
 
 class Phones(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.String(30))
+    date = db.Column(db.String(30), default=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     name = db.Column(db.String(30))
     number = db.Column(db.String(12))
 
@@ -46,3 +46,9 @@ class Pages(db.Model):
     name = db.Column(db.String(128))
     url = db.Column(db.String(128))
     description = db.Column(db.String(10000))
+
+class Seo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(128))
+    description = db.Column(db.String(128))
+    keywords = db.Column(db.String(128))

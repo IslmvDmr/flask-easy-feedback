@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends "admin.html"%}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show w-50 m-auto mb-3" role="alert">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 
-</body>
-</html>
+{% if calls[0] %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Дата</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Номер телефона</th>
+        <th scope="col">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {%for item in calls%}
+    <tr>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.date}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.number}}</td>
+        <td><a onclick="confirmDelete({{ item.id }})" class="btn btn-sm btn-danger"><i
+                class="bi bi-trash"></i><a></td>
+    </tr>
+    {%endfor%}
+    {%else%}
+    <div class="m-auto h4">Кажется страниц нет...</div>
+    {%endif%}
+    </tbody>
+</table>
+<script>
+    function confirmDelete(itemId) {
+        if (confirm("Вы уверены, что хотите удалить этот элемент?")) {
+            // Если пользователь подтвердил, переходим по ссылке с id
+            window.location.href = `calls/delete/${itemId}`;
+        }
+    }
+</script>
+{%endblock%}

@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{%extends "admin.html"%}
+{% block content %}
+
+<div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Запись #<span id="news-id">{{page.id}}</span></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Дата: <span id="news-date">{{page.date}}</span></h6>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><strong>Имя:</strong> <span id="news-name">{{page.name}}</span></p>
+                <p class="card-text"><strong>Email:</strong> <span id="news-email">{{page.email}}</span></p>
+                <p class="card-text"><strong>Сообщение:</strong></p>
+                <p class="card-text" id="news-message">{{page.message}}</p>
+            </div>
+        </div>
+    </div>
+{%endblock%}
