@@ -3,11 +3,35 @@
 <div class="p-5 mb-4 bg-body-tertiary rounded-3">
     <div class="container-fluid">
         <h1 class="display-5 fw-bold">Добро пожаловать на наш сайт!</h1>
-        <p class="col-md-12 fs-5">
+        <p class="col-md-12 fs-6">
            Добро пожаловать на страницу проекта лендинга, разработанного с использованием микрофреймворка Flask! <br>
             Этот проект представляет собой сайт-визитку, с возможностью добавлять статические страницы, дополнительно который включает в себя админ-панель для управления контентом и форму обратной связи для взаимодействия с посетителями.
         </p>
-        <button class="btn btn-primary btn-lg" type="button">Узнать больше</button>
+        <p class="col-md-12 fs-6">
+          Проект отлично подойдет для создания небольшого сайта любой организации работающей в сфере услуг.
+            Вы можете добавлять страницы, в которых будете рассказывать о новостях в вашей организации, а так же сможете быстро получать обратную связь от клиентов.
+        </p>
+<div class="row">
+    <div class="col-sm-3"><a href="/static/images/admin-panel.png" data-fancybox="gallery" data-caption="Админ панель" >
+  <img src="/static/images/admin-panel.png" class="img-thumbnail" />
+</a></div>
+    <div class="col-sm-3"><a href="/static/images/feed_demo.png" data-fancybox="gallery" data-caption="Админ панель" >
+  <img src="/static/images/feed_demo.png" class="img-thumbnail" />
+</a></div>
+    <div class="col-sm-3"><a href="/static/images/calls_demo.png" data-fancybox="gallery" data-caption="Админ панель" >
+  <img src="/static/images/calls_demo.png" class="img-thumbnail" />
+</a></div>
+      <div class="col-sm-3"><a href="/static/images/static_page.png" data-fancybox="gallery" data-caption="Админ панель" >
+  <img src="/static/images/static_page.png" class="img-thumbnail"  />
+</a></div>
+    </div>
+
+        <script>Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
+</script><br>
+        <a href="/feedback" class="btn btn-primary btn-lg" ><i class="bi bi-chat-right-text"></i> Форма обратной связи</a>
+        <a href ="/admin" class="btn btn-primary btn-lg" type="button"><i class="bi bi-building-gear"></i> Админ панель</a>
     </div>
 </div>
 <hr>
@@ -31,7 +55,7 @@
         <h3 class="fs-2 text-body-emphasis">Наша команда</h3>
         <p>Наша команда состоит из профессионалов своего дела, которые всегда готовы помочь вам и ответить на все ваши
             вопросы.</p>
-         <a href="/comand" class="btn btn-success">
+         <a href="/personal" class="btn btn-success">
             Подробнее
         </a>
     </div>

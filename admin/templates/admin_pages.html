@@ -12,6 +12,9 @@
         {% endwith %}
 
   {% if pages[0] %}
+<div class="m-auto h4 mb-2">Статические страницы</div>
+<div class="m-auto h4 mb-2"><a href="{{url_for('admin.add_pages')}}" class ="btn btn-success"> <i class="bi bi-journal-plus"></i> Добавить</a></div>
+
 <table class="table">
     <thead>
     <tr>
@@ -28,7 +31,7 @@
     <tr>
         <th scope="row">{{item.id}}</th>
         <td>{{item.date}}</td>
-        <td>{{item.name}}</td>
+        <td><a href="/{{item.url}}">{{item.name}}</a></td>
         <td>{{item.url}}</td>
         <td><a href="{{url_for('admin.edit_page', page_id=item.id)}}" class="btn btn-sm btn-primary"><i
                 class="bi bi-pencil-square"></i></a> <a onclick="confirmDelete({{ item.id }})" class="btn btn-sm btn-danger"><i

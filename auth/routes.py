@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, flash, request
-from flask_login import login_user, logout_user, login_required,current_user
+from flask_login import login_user, logout_user, login_required, current_user
 from . import auth
 from db import User
 from db import db
@@ -14,7 +14,9 @@ def login():
         if user and user.check_password(password):
             login_user(user)
             return redirect(url_for('admin.index'))
-        return 'invalid'
+        else:
+            flash('Ошибка входа')
+            return render_template('login.html')
     if current_user.is_authenticated:
         return redirect(url_for('admin.index'))
     return render_template('login.html')

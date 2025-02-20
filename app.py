@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash
+from flask import Flask
 from admin import admin
 from flask_login import LoginManager
 from config import Config
@@ -22,7 +22,7 @@ def create_app():
 
     # Инициализация Flask-Login
     login_manager.init_app(app)
-    login_manager.login_view = 'auth.login'  # Указываем endpoint для страницы входа
+    login_manager.login_view = 'auth.login'
 
     # Регистрация Blueprint
     from auth import auth as auth_blueprint
@@ -33,6 +33,7 @@ def create_app():
     app.register_blueprint(main, url_prefix='/')
     app.register_blueprint(fb, url_prefix='/feedback')
     app.register_blueprint(admin, url_prefix='/admin')
+
     return app
 
 

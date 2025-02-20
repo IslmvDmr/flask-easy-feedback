@@ -8,6 +8,10 @@ main = Blueprint('/', __name__)
 def index():
     return render_template('main.html', seo_data=g.seo)
 
+@main.route('/start', methods=['GET', 'POST'])
+def start():
+    return render_template('start.html', seo_data=g.seo)
+
 
 @main.route('/<string:page_name>', methods=['GET'])
 def get_page(page_name):

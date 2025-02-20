@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{seo_data.title}}</title>
+    <!-- Подключаем Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 100px 0;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #6a11cb;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Герой-секция -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold"><i class="bi bi-fire"></i> flask-easy-feedback</h1>
+        <p class="lead">Современный и функциональный сайт с админ-панелью, отзывами и обратными звонками.</p>
+        <a href="/" class="btn btn-light btn-lg">Узнать больше</a>
+    </div>
+</section>
+
+<!-- Особенности -->
+<section id="features" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Основные функции</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card card-hover h-100 shadow">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3">
+                            📄
+                        </div>
+                        <h5 class="card-title">Статические страницы</h5>
+                        <p class="card-text">Добавляйте и редактируйте страницы через админ-панель. Поддержка Markdown и
+                            HTML.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-hover h-100 shadow">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3">
+                            📝
+                        </div>
+                        <h5 class="card-title">Отзывы</h5>
+                        <p class="card-text">Пользователи могут оставлять отзывы, которые сохраняются в базе данных и
+                            отображаются на сайте.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-hover h-100 shadow">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3">
+                            📞
+                        </div>
+                        <h5 class="card-title">Обратные звонки</h5>
+                        <p class="card-text">Форма для заказа обратного звонка. Данные сохраняются и доступны в
+                            админ-панели.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Админ-панель -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>Админ-панель</h2>
+                <p class="lead">Удобное управление контентом сайта:</p>
+                <ul class="list-unstyled">
+                    <li>📋 Редактирование статических страниц.</li>
+                    <li>✅ Управление отзывами.</li>
+                    <li>📊 Просмотр заявок на обратный звонок.</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="/static/images/admin-panel.png" alt="Админ-панель" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Галерея детали -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Галерея</h2>
+        <div class="row">
+            <div class="col-sm-3"><a href="/static/images/admin-panel.png" data-fancybox="gallery"
+                                     data-caption="Админ панель">
+                <img src="/static/images/admin-panel.png" class="img-thumbnail"/>
+            </a></div>
+            <div class="col-sm-3"><a href="/static/images/feed_demo.png" data-fancybox="gallery"
+                                     data-caption="Админ панель">
+                <img src="/static/images/feed_demo.png" class="img-thumbnail"/>
+            </a></div>
+            <div class="col-sm-3"><a href="/static/images/calls_demo.png" data-fancybox="gallery"
+                                     data-caption="Админ панель">
+                <img src="/static/images/calls_demo.png" class="img-thumbnail"/>
+            </a></div>
+            <div class="col-sm-3"><a href="/static/images/static_page.png" data-fancybox="gallery"
+                                     data-caption="Админ панель">
+                <img src="/static/images/static_page.png" class="img-thumbnail"/>
+            </a></div>
+        </div>
+
+        <script>Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
+        </script>
+    </div>
+</section>
+<!-- Технические детали -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Технические детали</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Фреймворк</h5>
+                        <p class="card-text">Flask (Python) — легкий и мощный инструмент для создания
+                            веб-приложений.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">База данных</h5>
+                        <p class="card-text">SQLite или PostgreSQL для хранения данных. Используется ORM поэтому легко
+                            изменить базу.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Фронтенд</h5>
+                        <p class="card-text">Bootstrap 5 для адаптивного и современного дизайна.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Дополнительные библиотеки</h5>
+                        <p class="card-text">Flask-Login, Flask-WTF, Flask-Admin и другие.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Призыв к действию -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h2 class="display-6 fw-bold">Готовы начать?</h2>
+        <p class="lead">Создайте свой сайт-визитку с помощью Flask и Bootstrap уже сегодня!</p>
+        <a href="https://github.com/IslmvDmr/flask-easy-feedback" class="btn btn-light btn-lg"><i
+                class="bi bi-github"></i> Начать проект</a>
+    </div>
+</section>
+
+<!-- Подвал -->
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 flask-easy-feedback</p>
+    </div>
+</footer>
+
+<!-- Подключаем Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
