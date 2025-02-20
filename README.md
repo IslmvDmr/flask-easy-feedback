@@ -1,4 +1,3 @@
-Конечно! Вот пример файла `README.md` для вашего проекта Flask на GitHub:
 
 ```markdown
 # Flask Easy Feedback
